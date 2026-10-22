@@ -1,0 +1,19 @@
+# Local Python environment and generated interpreter files
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+
+# Local environment variables and editor/OS metadata
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
+
+# Temporary logs and cache files
+*.log
+.pytest_cache/
+.mypy_cache/

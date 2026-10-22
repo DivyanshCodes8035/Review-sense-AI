@@ -1,0 +1,67 @@
+{
+  "model": "TF-IDF word unigrams/bigrams + unweighted Logistic Regression",
+  "threshold_policy": "neutral if P(neutral) >= 0.26; otherwise choose larger P(negative), P(positive)",
+  "neutral_threshold_selected_on": "validation split only",
+  "random_seed": 42,
+  "train_rows": 164037,
+  "test_rows": 41010,
+  "train_unique_texts": 88583,
+  "test_unique_texts": 22167,
+  "overlapping_text_groups": 0,
+  "vocabulary_size": 106210,
+  "test_metrics": {
+    "accuracy": 0.9436235064618386,
+    "macro_f1": 0.8130906408702749,
+    "weighted_f1": 0.9422785995768276,
+    "classification_report": {
+      "negative": {
+        "precision": 0.8956568751126329,
+        "recall": 0.8801133345139012,
+        "f1-score": 0.8878170775276885,
+        "support": 5647.0
+      },
+      "neutral": {
+        "precision": 0.6189944134078212,
+        "recall": 0.5412799218368344,
+        "f1-score": 0.5775345321866041,
+        "support": 2047.0
+      },
+      "positive": {
+        "precision": 0.9687861958361795,
+        "recall": 0.9791091367511106,
+        "f1-score": 0.9739203128965321,
+        "support": 33316.0
+      },
+      "accuracy": 0.9436235064618386,
+      "macro avg": {
+        "precision": 0.8278124947855446,
+        "recall": 0.800167464367282,
+        "f1-score": 0.8130906408702749,
+        "support": 41010.0
+      },
+      "weighted avg": {
+        "precision": 0.9412566895509634,
+        "recall": 0.9436235064618386,
+        "f1-score": 0.9422785995768276,
+        "support": 41010.0
+      }
+    },
+    "confusion_matrix_rows_true_columns_predicted": [
+      [
+        4970,
+        273,
+        404
+      ],
+      [
+        292,
+        1108,
+        647
+      ],
+      [
+        287,
+        409,
+        32620
+      ]
+    ]
+  }
+}

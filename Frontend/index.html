@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#071321" />
+    <title>ReviewSense AI | From review to insight</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+<body>
+    <canvas id="network-background" class="network-background" aria-hidden="true"></canvas>
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="ReviewSense AI home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span>ReviewSense <span class="brand-ai">AI</span></span>
+      </a>
+      <div id="api-status" class="api-status" role="status">
+        <span class="status-dot"></span><span id="api-status-text">Checking API</span>
+      </div>
+    </header>
+
+    <main id="top" class="page-shell">
+      <section class="intro" aria-labelledby="page-title">
+        <p class="eyebrow">PRODUCT REVIEW INTELLIGENCE</p>
+        <h1 id="page-title">From review <span aria-hidden="true">→</span> insight</h1>
+        <p class="intro-copy">A simple interface on top. Machine learning underneath.</p>
+      </section>
+
+      <section class="dashboard" aria-label="ReviewSense sentiment analyzer">
+        <div class="dashboard-bar">
+          <div class="window-controls" aria-hidden="true"><span></span><span></span><span></span></div>
+          <span class="dashboard-title">ReviewSense AI</span>
+          <span class="model-badge"><span class="model-dot"></span> TF-IDF + LOGISTIC REGRESSION</span>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="analyzer-panel" aria-labelledby="analyzer-title">
+            <p class="section-label">LIVE REVIEW ANALYZER</p>
+            <h2 id="analyzer-title" class="visually-hidden">Analyze a product review</h2>
+            <form id="review-form">
+              <label class="visually-hidden" for="review">Product review</label>
+              <textarea
+                id="review"
+                name="review"
+                rows="6"
+                maxlength="5000"
+                placeholder="Paste a product review here…"
+                required
+              ></textarea>
+              <div class="input-meta"><span>Write or paste the full review</span><span id="character-count">0 / 5000</span></div>
+
+              <label class="summary-label" for="summary">SHORT SUMMARY <span>OPTIONAL</span></label>
+              <input
+                id="summary"
+                name="summary"
+                type="text"
+                maxlength="300"
+                placeholder="e.g. Great sound, short battery life"
+              />
+              <div id="form-message" class="form-message" role="alert" hidden></div>
+              <button id="analyze-button" class="primary-button" type="submit">
+                <span>ANALYZE REVIEW</span><span aria-hidden="true">→</span>
+              </button>
+            </form>
+          </section>
+
+          <section class="results-column" aria-label="Sentiment results">
+            <section class="result-card overall-card" aria-live="polite">
+              <div class="card-topline">
+                <p class="section-label">OVERALL SENTIMENT</p>
+                <span class="result-icon" aria-hidden="true">✦</span>
+              </div>
+
+              <div id="empty-state" class="empty-state">
+                <div class="empty-orbit" aria-hidden="true"><span>R</span><i>✦</i></div>
+                <h2>Your insight will appear here</h2>
+                <p>Submit a review to see the model’s overall sentiment prediction.</p>
+              </div>
+
+              <div id="prediction" class="prediction" hidden>
+                <div class="sentiment-line">
+                  <div id="sentiment-pill" class="sentiment-pill">
+                    <span class="sentiment-dot"></span><span id="sentiment-value">—</span>
+                  </div>
+                  <div class="confidence-block">
+                    <span>MODEL SCORE</span>
+                    <strong id="confidence-value">—</strong>
+                  </div>
+                </div>
+                <div class="confidence-track"><span id="confidence-bar"></span></div>
+                <p class="confidence-caption">Probability estimate for the predicted class</p>
+              </div>
+            </section>
+
+            <section class="result-card breakdown-card">
+              <div class="card-topline breakdown-heading">
+                <div><p class="section-label">SENTIMENT BREAKDOWN</p><h2>Class probability estimates</h2></div>
+                <span class="scale-label">MODEL OUTPUT</span>
+              </div>
+              <div id="class-scores" class="class-scores">
+                <p class="breakdown-empty">Scores for positive, neutral, and negative sentiment will appear after analysis.</p>
+              </div>
+              <p class="estimate-note">Scores are model estimates, not calibrated certainty.</p>
+            </section>
+
+            <section class="result-card explanation-card" aria-live="polite" aria-labelledby="explanation-title">
+              <div class="card-topline breakdown-heading">
+                <div><p class="section-label">MODEL EXPLANATION</p><h2 id="explanation-title">Why this prediction?</h2></div>
+                <span class="scale-label">TEXT SIGNALS</span>
+              </div>
+              <p id="explanation-empty" class="breakdown-empty">Run an analysis to see which words and phrases influenced the result.</p>
+              <div id="explanation-content" hidden>
+                <p id="comparison-label" class="comparison-label"></p>
+                <div class="signal-group">
+                  <p class="signal-heading supporting-heading">Supporting the prediction</p>
+                  <div id="supporting-signals" class="signal-list"></div>
+                </div>
+                <div class="signal-group">
+                  <p class="signal-heading opposing-heading">Pulling toward another class</p>
+                  <div id="opposing-signals" class="signal-list"></div>
+                </div>
+                <p class="estimate-note">These are influential model features, not proof of cause or aspect-level sentiment.</p>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <footer class="page-footer">
+        <div><strong>TRAIN <span>→</span> EVALUATE <span>→</span> DEPLOY</strong><small>REVIEWSENSE AI&nbsp; · &nbsp;NLP + MACHINE LEARNING</small></div>
+        <div class="tech-pills"><span>Python</span><span>NLP</span><span>ML</span><span>Web UI</span></div>
+      </footer>
+    </main>
+    <script src="network-background.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "input_file": "Dataset\\Dataset-SA.csv",
+  "random_seed": 42,
+  "split_method": "StratifiedGroupKFold (first of 5 folds)",
+  "requested_test_fraction": 0.2,
+  "actual_test_fraction": 0.200003,
+  "group_key": "normalized combined Review + Summary text",
+  "text_separator": " [SEP] ",
+  "labels": [
+    "negative",
+    "neutral",
+    "positive"
+  ],
+  "cleaning": {
+    "input_rows": 205052,
+    "malformed_rate_rows_removed": 3,
+    "empty_text_rows_removed": 2,
+    "unknown_label_rows_removed": 0,
+    "rows_removed_total": 5,
+    "usable_rows": 205047
+  },
+  "cleaned_class_counts": {
+    "negative": 28231,
+    "neutral": 10238,
+    "positive": 166578
+  },
+  "train_rows": 164037,
+  "test_rows": 41010,
+  "train_class_counts": {
+    "negative": 22584,
+    "neutral": 8191,
+    "positive": 133262
+  },
+  "test_class_counts": {
+    "negative": 5647,
+    "neutral": 2047,
+    "positive": 33316
+  },
+  "unique_text_groups": 110750,
+  "overlapping_text_groups": 0,
+  "excluded_features": [
+    "Rate",
+    "product_name",
+    "product_price"
+  ]
+}
